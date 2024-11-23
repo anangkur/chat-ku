@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCeC01Fhv-HO3lMpxxwY3XWZdJdvuoypCw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>529046812264</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.anangkur.chatku</string>
+	<key>PROJECT_ID</key>
+	<string>anangkur-chatku</string>
+	<key>STORAGE_BUCKET</key>
+	<string>anangkur-chatku.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:529046812264:ios:041a3d957b17c5d4fb6ddd</string>
+</dict>
+</plist>

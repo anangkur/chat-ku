@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DE7038B72CF1DDBC00313533 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DE7038B62CF1DDBC00313533 /* FirebaseAnalytics */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		DE83A3392CF0DA9B00EB06FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE7038B72CF1DDBC00313533 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = chatku;
 			packageProductDependencies = (
+				DE7038B62CF1DDBC00313533 /* FirebaseAnalytics */,
 			);
 			productName = chatku;
 			productReference = DE83A3222CF0DA9900EB06FA /* chatku.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = DE83A3192CF0DA9900EB06FA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DE7038B52CF1DDBC00313533 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DE83A3232CF0DA9900EB06FA /* Products */;
 			projectDirPath = "";
@@ -569,6 +578,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DE7038B52CF1DDBC00313533 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DE7038B62CF1DDBC00313533 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE7038B52CF1DDBC00313533 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE83A31A2CF0DA9900EB06FA /* Project object */;
 }
