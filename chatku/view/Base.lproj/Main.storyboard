@@ -271,10 +271,10 @@
             </objects>
             <point key="canvasLocation" x="1837.4045801526718" y="316.90140845070425"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="7Ri-Ts-kot">
             <objects>
-                <viewController id="jA1-F5-dsR" sceneMemberID="viewController">
+                <viewController id="jA1-F5-dsR" customClass="ChatViewController" customModule="chatku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bW-E5-J3u">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +313,13 @@
                             <constraint firstItem="F6D-h6-kvd" firstAttribute="trailing" secondItem="0fm-qA-AZV" secondAttribute="trailing" id="wKK-QC-YX0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3s8-2n-TgY"/>
+                    <navigationItem key="navigationItem" id="3s8-2n-TgY">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="cNW-84-qba">
+                            <connections>
+                                <action selector="onLogoutClicked:" destination="jA1-F5-dsR" id="qVA-9d-wrU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPa-rq-Mab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
