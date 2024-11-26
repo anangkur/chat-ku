@@ -20,6 +20,7 @@ class ChatViewController : UIViewController, UITableViewDataSource {
         title = Constant.title
         navigationItem.hidesBackButton = true
         chatTableView.dataSource = self
+        chatTableView.register(UINib(nibName: Constant.chatCell, bundle: nil), forCellReuseIdentifier: Constant.chatCell)
     }
     
     @IBAction func sendButton(_ sender: UIButton) {
@@ -40,8 +41,8 @@ class ChatViewController : UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.chatCell, for: indexPath)
-        cell.textLabel?.text = messages[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.chatCell, for: indexPath) as! ChatCell
+        cell.messageLabel.text = messages[indexPath.row]
         return cell
     }
     

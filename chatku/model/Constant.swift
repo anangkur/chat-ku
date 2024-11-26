@@ -7,7 +7,7 @@
 
 struct Constant {
     static let title = "Chat Ku"
-    static let chatCell = "chatCell"
+    static let chatCell = "ChatCell"
     
     struct Error {
         static let errorSignout = "Error signing out: %@"
