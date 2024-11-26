@@ -11,7 +11,7 @@ import FirebaseAuth
 class ChatViewController : UIViewController {
     
     override func viewDidLoad() {
-        title = "Chat Ku"
+        title = Constant.title
         navigationItem.hidesBackButton = true
     }
     
@@ -21,7 +21,7 @@ class ChatViewController : UIViewController {
             try firebaseAuth.signOut()
             navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError.localizedDescription)
+            print(Constant.Error.errorSignout, signOutError.localizedDescription)
         }
     }
 }
