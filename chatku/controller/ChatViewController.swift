@@ -17,8 +17,6 @@ class ChatViewController : UIViewController, UITableViewDataSource {
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
-        createDummyData()
-        
         title = Constant.title
         navigationItem.hidesBackButton = true
         chatTableView.dataSource = self
@@ -26,6 +24,8 @@ class ChatViewController : UIViewController, UITableViewDataSource {
             UINib(nibName: Constant.chatCell, bundle: nil),
             forCellReuseIdentifier: Constant.chatCell
         )
+        
+        loadMessages()
     }
     
     @IBAction func sendButton(_ sender: UIButton) {
@@ -73,9 +73,20 @@ class ChatViewController : UIViewController, UITableViewDataSource {
         return cell
     }
     
-    private func createDummyData() {
-        for i in 1...100 {
-            messages.append("item \(i)")
+    private func loadMessages() {
+        Task {
+            do {
+                let snapshot = try await db.collection(Constant.Firestore.collectionName).getDocuments()
+                for document in snapshot.documents {
+                    let data = document.data()
+                    if let sender = data[Constant.Firestore.sender] as? String, let message = data[Constant.Firestore.body] as? String {
+                        self.messages.append(message)
+                        self.chatTableView.reloadData()
+                    }
+                }
+            } catch {
+                print("Error getting documents: \(error.localizedDescription)")
+            }
         }
     }
 }
