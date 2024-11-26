@@ -17,4 +17,10 @@ struct Constant {
         static let loginToChat = "loginToChat"
         static let registerToChat = "registerToChat"
     }
+    
+    struct Firestore {
+        static let collectionName = "messages"
+        static let body = "body"
+        static let sender = "sender"
+    }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DE7038B72CF1DDBC00313533 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DE7038B62CF1DDBC00313533 /* FirebaseAnalytics */; };
+		DED0C2462CF5C5C70023BB1C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DED0C2452CF5C5C70023BB1C /* FirebaseFirestore */; };
 		DEF0D2D82CF48B41002FD631 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DEF0D2D72CF48B41002FD631 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 			files = (
 				DE7038B72CF1DDBC00313533 /* FirebaseAnalytics in Frameworks */,
 				DEF0D2D82CF48B41002FD631 /* FirebaseAuth in Frameworks */,
+				DED0C2462CF5C5C70023BB1C /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +136,7 @@
 			packageProductDependencies = (
 				DE7038B62CF1DDBC00313533 /* FirebaseAnalytics */,
 				DEF0D2D72CF48B41002FD631 /* FirebaseAuth */,
+				DED0C2452CF5C5C70023BB1C /* FirebaseFirestore */,
 			);
 			productName = chatku;
 			productReference = DE83A3222CF0DA9900EB06FA /* chatku.app */;
@@ -598,6 +601,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE7038B52CF1DDBC00313533 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		DED0C2452CF5C5C70023BB1C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseFirestore;
 		};
 		DEF0D2D72CF48B41002FD631 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
