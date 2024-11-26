@@ -18,6 +18,5 @@ class ViewController: UIViewController {
         titleLabel.text = Constant.title
     }
 
-
 }
 
