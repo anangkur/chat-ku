@@ -1,0 +1,6 @@
+framework module Pods_chatku {
+  umbrella header "Pods-chatku-umbrella.h"
+
+  export *
+  module * { export * }
+}

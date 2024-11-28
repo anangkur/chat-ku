@@ -1,0 +1,6 @@
+framework module Pods_chatku_chatkuUITests {
+  umbrella header "Pods-chatku-chatkuUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
