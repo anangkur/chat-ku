@@ -22,5 +22,6 @@ struct Constant {
         static let collectionName = "messages"
         static let body = "body"
         static let sender = "sender"
+        static let date = "date"
     }
 }

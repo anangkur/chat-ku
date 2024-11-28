@@ -42,6 +42,7 @@ class ChatViewController : UIViewController, UITableViewDataSource {
                 data: [
                     Constant.Firestore.body: message,
                     Constant.Firestore.sender: user,
+                    Constant.Firestore.date: Date().timeIntervalSince1970,
                 ]
             )
             print("Document added with ID: \(ref.documentID)")
@@ -74,7 +75,7 @@ class ChatViewController : UIViewController, UITableViewDataSource {
     }
     
     private func loadMessages() {
-        db.collection(Constant.Firestore.collectionName).addSnapshotListener { documentSnapshot, error in
+        db.collection(Constant.Firestore.collectionName).order(by: Constant.Firestore.date).addSnapshotListener { documentSnapshot, error in
             if let e = error {
                 print(e.localizedDescription)
             } else {
@@ -82,7 +83,7 @@ class ChatViewController : UIViewController, UITableViewDataSource {
                     self.messages = []
                     for document in documents {
                         let data = document.data()
-                        if let sender = data[Constant.Firestore.sender] as? String, let message = data[Constant.Firestore.body] as? String {
+                        if let message = data[Constant.Firestore.body] as? String {
                             self.messages.append(message)
                             self.chatTableView.reloadData()
                         }
