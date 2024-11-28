@@ -74,18 +74,20 @@ class ChatViewController : UIViewController, UITableViewDataSource {
     }
     
     private func loadMessages() {
-        Task {
-            do {
-                let snapshot = try await db.collection(Constant.Firestore.collectionName).getDocuments()
-                for document in snapshot.documents {
-                    let data = document.data()
-                    if let sender = data[Constant.Firestore.sender] as? String, let message = data[Constant.Firestore.body] as? String {
-                        self.messages.append(message)
-                        self.chatTableView.reloadData()
+        db.collection(Constant.Firestore.collectionName).addSnapshotListener { documentSnapshot, error in
+            if let e = error {
+                print(e.localizedDescription)
+            } else {
+                if let documents = documentSnapshot?.documents {
+                    self.messages = []
+                    for document in documents {
+                        let data = document.data()
+                        if let sender = data[Constant.Firestore.sender] as? String, let message = data[Constant.Firestore.body] as? String {
+                            self.messages.append(message)
+                            self.chatTableView.reloadData()
+                        }
                     }
                 }
-            } catch {
-                print("Error getting documents: \(error.localizedDescription)")
             }
         }
     }
