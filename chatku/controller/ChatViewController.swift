@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-class ChatViewController : UIViewController, UITableViewDataSource {
+class ChatViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var chatTextField: UITextField!
     @IBOutlet weak var chatTableView: UITableView!
@@ -19,7 +19,13 @@ class ChatViewController : UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         title = Constant.title
         navigationItem.hidesBackButton = true
+        
         chatTableView.dataSource = self
+        chatTableView.delegate = self
+        
+        chatTableView.rowHeight = UITableView.automaticDimension
+        chatTableView.estimatedRowHeight = UITableView.automaticDimension
+        
         chatTableView.register(
             UINib(nibName: Constant.chatCell, bundle: nil),
             forCellReuseIdentifier: Constant.chatCell
@@ -73,6 +79,14 @@ class ChatViewController : UIViewController, UITableViewDataSource {
             cell.updateContent(message: messages[indexPath.row], currentUser: user)
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     private func loadMessages() {
