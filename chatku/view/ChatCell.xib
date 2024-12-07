@@ -20,11 +20,32 @@
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-nS-JmC">
                         <rect key="frame" x="8" y="8" width="307" height="54"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgC-nW-If0" userLabel="avatarViewLeft">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Af-YH-KJY" userLabel="avatarLabelLeft">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="867-7A-rMg"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1Af-YH-KJY" secondAttribute="trailing" id="1Cg-V5-Wox"/>
+                                    <constraint firstAttribute="width" constant="40" id="GeJ-Z2-zHM"/>
+                                    <constraint firstItem="1Af-YH-KJY" firstAttribute="leading" secondItem="fgC-nW-If0" secondAttribute="leading" id="gAq-Gd-xt0"/>
+                                    <constraint firstItem="1Af-YH-KJY" firstAttribute="top" secondItem="fgC-nW-If0" secondAttribute="top" id="o2H-BZ-5Ii"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Af-YH-KJY" secondAttribute="bottom" id="oNj-z1-01b"/>
+                                    <constraint firstAttribute="height" constant="40" id="oo7-fz-Fmu"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dg2-a6-Jh5" userLabel="chatView">
-                                <rect key="frame" x="0.0" y="0.0" width="251" height="50"/>
+                                <rect key="frame" x="56" y="0.0" width="195" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTy-rr-G4q" userLabel="messageLabel">
-                                        <rect key="frame" x="8" y="8" width="235" height="34"/>
+                                        <rect key="frame" x="8" y="8" width="179" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -71,7 +92,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="avatarLabel" destination="KTq-Iz-xQV" id="he1-Cg-Gm7"/>
+                <outlet property="avatarLabelLeft" destination="1Af-YH-KJY" id="DUU-MS-6NK"/>
                 <outlet property="avatarView" destination="UM3-uC-vI0" id="Owa-Vc-ala"/>
+                <outlet property="avatarViewLeft" destination="fgC-nW-If0" id="c9d-3o-RWI"/>
                 <outlet property="chatView" destination="Dg2-a6-Jh5" id="t0N-8g-bMW"/>
                 <outlet property="messageLabel" destination="uTy-rr-G4q" id="B3h-54-vVE"/>
             </connections>

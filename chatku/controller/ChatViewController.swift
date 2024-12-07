@@ -13,7 +13,7 @@ class ChatViewController : UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var chatTextField: UITextField!
     @IBOutlet weak var chatTableView: UITableView!
-    private var messages: [String] = []
+    private var messages: [Message] = []
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
@@ -38,14 +38,13 @@ class ChatViewController : UIViewController, UITableViewDataSource {
     
     private func sendMessage(message: String, user: String) async {
         do {
-            let ref = try await db.collection(Constant.Firestore.collectionName).addDocument(
+            try await db.collection(Constant.Firestore.collectionName).addDocument(
                 data: [
                     Constant.Firestore.body: message,
                     Constant.Firestore.sender: user,
                     Constant.Firestore.date: Date().timeIntervalSince1970,
                 ]
             )
-            print("Document added with ID: \(ref.documentID)")
             DispatchQueue.main.async {
                 self.chatTextField.text = ""
             }
@@ -70,7 +69,9 @@ class ChatViewController : UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.chatCell, for: indexPath) as! ChatCell
-        cell.messageLabel.text = messages[indexPath.row]
+        if let user = Auth.auth().currentUser?.email {
+            cell.updateContent(message: messages[indexPath.row], currentUser: user)
+        }
         return cell
     }
     
@@ -83,7 +84,8 @@ class ChatViewController : UIViewController, UITableViewDataSource {
                     self.messages = []
                     for document in documents {
                         let data = document.data()
-                        if let message = data[Constant.Firestore.body] as? String {
+                        if let message = data[Constant.Firestore.body] as? String, let sender = data[Constant.Firestore.sender] as? String {
+                            let message = Message(message: message, user: sender)
                             self.messages.append(message)
                             self.chatTableView.reloadData()
                         }
